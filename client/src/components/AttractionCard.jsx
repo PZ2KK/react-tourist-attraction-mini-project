@@ -71,7 +71,7 @@ function AttractionCard({title, url, photos, tags, description, onTagClick}) {
             {tags.map((tag) => (
             <button 
               key={tag}
-              className=" bg-blue-400 hover:bg-blue-300 text-white ml-2 px-2 py-1 rounded-lg"
+              className=" md:bg-blue-400  md:hover:bg-blue-300 md:text-white md:ml-2 md:py-1 md:px-2 md:no-underline underline px-1 mt-1 rounded-lg"
               onClick={() => onTagClick(tag)}
             >
               {tag}
@@ -82,7 +82,7 @@ function AttractionCard({title, url, photos, tags, description, onTagClick}) {
 
         {/* Lower Box */}
         <div className="flex flex-row pb-3">
-          <div className="flex flex-row gap-6">
+          <div className="flex flex-row md:gap-6 gap-3">
             {photos
               .filter((item, index) => index !== 0)
               .map((item) => (
@@ -96,7 +96,7 @@ function AttractionCard({title, url, photos, tags, description, onTagClick}) {
               ))
             }
           </div>
-          <div className="flex items-end ml-auto mr-40">
+          <div className="flex md:ml-auto md:items-end md:mr-40 ml-6 items-center">
             <FaLink
               size="30"
               className="cursor-pointer text-blue-600 hover:text-blue-300"
