@@ -36,22 +36,27 @@ function LandingPage() {
     return (
       <>
         {/* Header */}
-        <div className="text-5xl text-blue-400 font-NotoSans">
-          <h1>เที่ยวไหนดี</h1>
-        </div>
+        <div className="flex flex-col items-center font-NotoSans p-6">
+          <div className="text-5xl text-blue-400 pt-12 font-bold">
+            <h1>เที่ยวไหนดี</h1>
+          </div>
 
-        {/* Seacrh Bar */}
-        <p className="font-NotoSans">ค้นหาที่เที่ยว</p>
-        <DebounceInput
-          debounceTimeout={500}
-          aria-label="Search"
-          maxLength={100}
-          className=""
-          type="text"
-          placeholder="หาที่เที่ยวแล้วไปกัน ..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
+          {/* Seacrh Bar */}
+          <p 
+            className="pt-6 flex w-1/2 justify-center md:justify-start">
+              ค้นหาที่เที่ยว
+          </p>
+          <DebounceInput
+            className="flex w-1/2 placeholder:text-center text-center border border-b-gray-200 border-x-transparent border-t-transparent focus:outline-none"
+            debounceTimeout={500}
+            aria-label="Search"
+            maxLength={100}
+            type="text"
+            placeholder="หาที่เที่ยวแล้วไปกัน ..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
         
         {/* AttractionCard */}
         {isLoading && 

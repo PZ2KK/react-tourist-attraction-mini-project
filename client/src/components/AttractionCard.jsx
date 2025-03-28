@@ -9,7 +9,7 @@ function AttractionCard({title, url, photos, tags, description}) {
     // Big Box
     <div className="flex w-full max-w-4xl mx-auto py-6 bg-white rounded-lg overflow-hidden font-NotoSans">
       {/* Left Box */}
-      <div className="w-1/3 h-60 rounded-3xl overflow-hidden flex-shrink-0">
+      <div className="md:flex hidden w-1/3 md:h-60 h-1/2 rounded-3xl overflow-hidden flex-shrink-0">
         <img
           src={photos[0]}
           alt={title}
@@ -18,9 +18,16 @@ function AttractionCard({title, url, photos, tags, description}) {
       </div>
 
       {/* Right Box */}
-      <div className="w-2/3 pl-6 flex flex-col ">
+      <div className="md:w-2/3 w-full md:pl-6 px-6 flex flex-col">
         {/* Upper Box */}
-        <div className="mb-6">
+          <div className="mb-6">
+            <div className="md:hidden h-auto rounded-3xl overflow-hidden flex-shrink-0 mb-6">
+            <img
+              src={photos[0]}
+              alt={title}
+              className="w-full h-full object-cover"
+            />
+          </div>
           {/* Title */}
           <h2 className="text-2xl font-bold mb-2 ">
             {title}
@@ -60,7 +67,7 @@ function AttractionCard({title, url, photos, tags, description}) {
                 key={item}
                 src={item}
                 alt={title}
-                className={`w-1/5 object-cover rounded-md`}
+                className={`w-20 h-20 object-cover rounded-md`}
               />
             ))
           }
