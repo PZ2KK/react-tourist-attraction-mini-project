@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-function AttractionCard({title, url, photos, tags, description  }) {
+function AttractionCard({title, url, photos, tags, description}) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const shortDescription = description.length > 100 ? description.slice(0, 100) + '...' : description;
 
   return (
     // Big Box
-    <div className="flex w-full max-w-4xl mx-auto bg-white rounded-lg overflow-hidden font-NotoSans">
+    <div className="flex w-full max-w-4xl mx-auto py-6 bg-white rounded-lg overflow-hidden font-NotoSans">
       {/* Left Box */}
       <div className="w-1/3 h-60 rounded-3xl overflow-hidden flex-shrink-0">
         <img
@@ -43,7 +43,7 @@ function AttractionCard({title, url, photos, tags, description  }) {
             <button 
               key={tag}
               className="ml-2 underline"
-              onClick={setSearchQuery(tag)}
+              
             >
                 {tag}
             </button>
@@ -54,18 +54,20 @@ function AttractionCard({title, url, photos, tags, description  }) {
         {/* Lower Box */}
         <div className="flex gap-6 pb-3">
           {photos
-            .filter((item => item !== item[0] ))
-            .map((item) => {
+            .filter((item, index) => index !== 0)
+            .map((item) => (
               <img
                 key={item}
                 src={item}
                 alt={title}
                 className={`w-1/5 object-cover rounded-md`}
               />
-            })
+            ))
           }
-          
         </div>
+
+
+
       </div>
     </div>
   );
