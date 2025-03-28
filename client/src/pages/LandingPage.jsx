@@ -3,6 +3,7 @@ import { DebounceInput } from "react-debounce-input";
 import axios from "axios";
 import AttractionCard from "../components/AttractionCard";
 
+
 function LandingPage() {
   const [isLoading, setLoading] = useState(false);
   const [isError, setError] = useState(false);
