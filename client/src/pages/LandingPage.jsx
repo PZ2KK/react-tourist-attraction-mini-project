@@ -31,7 +31,12 @@ function LandingPage() {
     fetchData();
   }, [searchQuery]);
 
- 
+  const handleTagClick = (tag) => {
+    setSearchQuery((prev) => {
+      const tags = prev ? prev.split(" ") : [];
+      return tags.includes(tag) ? prev : [...tags, tag].join(" ");
+    });
+  };
 
     return (
       <>
@@ -70,7 +75,7 @@ function LandingPage() {
             <p>Failed to load tourist attraction. Please try again.</p>
           </div>
         }
-        {console.log(posts)}
+        
         {posts.map((post) => (
         <AttractionCard
           key={post.eid}
@@ -79,6 +84,7 @@ function LandingPage() {
           photos={post.photos}
           tags={post.tags}
           description={post.description}
+          onTagClick={handleTagClick}
         />
       ))}
       </>
